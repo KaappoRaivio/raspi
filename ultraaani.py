@@ -11,12 +11,13 @@ import time
 GPIO.setmode(GPIO.BCM)
 
 # GPIO kaytettavat  pinnit
-GPIO_TRIGGER = 18
-GPIO_ECHO = 24
+GPIO_TRIGGER = 18  # Fyysinen 12
+GPIO_ECHO = 24  # Fyysinen 18
 
 # GPIO-Pinnien toimintasuunta, asettaminen (IN / OUT)
 GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
 GPIO.setup(GPIO_ECHO, GPIO.IN)
+
 
 def etaisyys():
     # Aseta Trigger HIGH
@@ -50,7 +51,7 @@ if __name__ == '__main__':
         print("Mittaus aloitettu.")
         while True:
             mitattu_etaisyys = etaisyys()
-            print ("Mitattu etaisyys  {:.1f} cm".format(mitattu_etaisyys))
+            print("Mitattu etaisyys  {:.1f} cm".format(mitattu_etaisyys))
             time.sleep(1)
     except KeyboardInterrupt:
         # Keskeytys ctrl+C
